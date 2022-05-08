@@ -1,0 +1,1 @@
+export default () => new Response("This is a response from an edge function");
