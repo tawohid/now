@@ -10,7 +10,6 @@ const App = () => {
       {error && <p>Error: {error.message}</p>}
       {data && <h3>{current.description}</h3>}
       {data && <p>{current.durationH}h - {current.durationM}m - {current.durationS}s</p>}
-
     </>
 
   )
