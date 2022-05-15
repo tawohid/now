@@ -15,7 +15,7 @@ import { dataset_dev } from "svelte/internal"
   <p> Loading... </p>
 {:then data}
   <p>{data.project} / {data.description}</p>
-  <p>{data.durationH}h:{data.durationM}m:{data.durationS}s</p>
+  <p>{data.durationH}h - {data.durationM}m - {data.durationS}s</p>
 {:catch error}
   <p>Error: {error}</p>
 {/await}
