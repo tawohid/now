@@ -1,6 +1,4 @@
 <script lang="ts">
-import { dataset_dev } from "svelte/internal"
-
   // fetch data from the server
   const getCurrent = (async () => {
     const response = await fetch('/current')
