@@ -15,9 +15,8 @@ export default async (_request: Request, context: Context) => {
     let resp = {
       "description": "Nothing",
       "project": "None",
-      "durationH": 0,
-      "durationM": 0,
-      "durationS": 0,
+      "duration": 0,
+      "color": "0",
     }
 
     const getCurrentTimeEntry = await fetch(`${baseApi}time_entries/current`, headers);
@@ -31,18 +30,12 @@ export default async (_request: Request, context: Context) => {
     const getCurrentProject = await fetch(`${baseApi}projects/${currentTimeEntry.pid}`, headers);
     const jsonCurrentProject = await getCurrentProject.json();
     const currentProject = jsonCurrentProject.data;
-
-    const duration = Date.now() / 1000 + currentTimeEntry.duration;
-    const durationH = Math.floor(duration / 3600);
-    const durationM = Math.floor((duration % 3600) / 60);
-    const durationS = Math.floor((duration % 3600) % 60);
     
     resp = {
         "description": currentTimeEntry.description,
         "project": currentProject.name,
-        "durationH": durationH,
-        "durationM": durationM,
-        "durationS": durationS,
+        "duration": currentTimeEntry.duration,
+        "color": currentProject.hex_color,
     }
 
     return context.json(resp);
