@@ -43,9 +43,8 @@ import { onMount } from "svelte";
       <p>Absoloutley Nothing</p>
     {:else}
       <p style="color: {currentData.color}; font-weight: bold;">
-        {currentData.description}
+        {currentData.project} / {currentData.description}
       </p>
-      <p>({currentData.project})</p>
       <p>{durationString}</p>
     {/if}
 {:else}
